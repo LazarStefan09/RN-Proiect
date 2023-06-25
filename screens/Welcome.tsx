@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 import { StatusBar } from "expo-status-bar";
 import styled from "styled-components/native";
 //image
-import background from "../assets/welcome-screen/background_v1.png";
+import background from "../assets/background/background_v1.png";
 
 // custom comp
 import { colors } from '../components/colors';
@@ -37,8 +37,6 @@ const BottomSection = styled.View`
   flex: 1;
   justify-content: flex-end;
 `;
-
-
 
 const Welcome: FunctionComponent = () => {
   return (

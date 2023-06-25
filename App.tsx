@@ -1,20 +1,54 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { FunctionComponent } from 'react';
+import { StatusBar } from "expo-status-bar";
+import styled from "styled-components/native";
+//image
+import background from "./assets/welcome-screen/background_v1.png";
 
-export default function App() {
+
+// custom comp
+import { colors } from './components/colors';
+import { Container } from './components/shared';
+
+
+const WelcomeContainer = styled(Container)`
+  background-color: ${colors.secondary};
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+`;
+
+const TopSection = styled.View`
+  width: 100%;
+  flex: 1;
+  max-height: 55%;
+`;
+
+const TopImage = styled.Image`
+  width: 100%;
+  height: 100%;
+  resize-mode: stretch;
+`;
+
+const BottomSection = styled.View`
+  width: 100%;
+  padding: 25px;
+  flex: 1;
+`;
+
+
+
+const Welcome: FunctionComponent = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <>
+    <StatusBar style="light" />
+    <WelcomeContainer>
+      <TopSection>
+        <TopImage source = {background} />
+      </TopSection>
+      <BottomSection></BottomSection>
+    </WelcomeContainer>
+    </>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default Welcome;

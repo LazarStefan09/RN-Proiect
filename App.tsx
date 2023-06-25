@@ -1,54 +1,23 @@
-import React, { FunctionComponent } from 'react';
-import { StatusBar } from "expo-status-bar";
-import styled from "styled-components/native";
-//image
-import background from "./assets/welcome-screen/background_v1.png";
+import React from "react";
 
+//custom font
+import AppLoading from "expo-app-loading";
+import { useFonts } from "expo-font";
+// import SplashScreen from "expo-splash-screen";
 
-// custom comp
-import { colors } from './components/colors';
-import { Container } from './components/shared';
+import Welcome from "./screens/Welcome";
 
+export default function App() {
+  let [fontsLoaded] = useFonts({
+    "Lato-Bold": require("./assets/fonts/Lato-Bold.ttf"),
+    "Lato-Regular": require("./assets/fonts/Lato-Regular.ttf"),
+  });
+  
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  }
 
-const WelcomeContainer = styled(Container)`
-  background-color: ${colors.secondary};
-  justify-content: space-between;
-  width: 100%;
-  height: 100%;
-`;
-
-const TopSection = styled.View`
-  width: 100%;
-  flex: 1;
-  max-height: 55%;
-`;
-
-const TopImage = styled.Image`
-  width: 100%;
-  height: 100%;
-  resize-mode: stretch;
-`;
-
-const BottomSection = styled.View`
-  width: 100%;
-  padding: 25px;
-  flex: 1;
-`;
-
-
-
-const Welcome: FunctionComponent = () => {
-  return (
-    <>
-    <StatusBar style="light" />
-    <WelcomeContainer>
-      <TopSection>
-        <TopImage source = {background} />
-      </TopSection>
-      <BottomSection></BottomSection>
-    </WelcomeContainer>
-    </>
+  return(
+    <Welcome/>
   );
 };
-
-export default Welcome;

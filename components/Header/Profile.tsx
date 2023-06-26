@@ -17,7 +17,7 @@ const StyledImage = styled.Image`
 `;
 
 interface ProfileProps {
-    img: ImageSourcePropType;
+    img: number | ImageSourcePropType;
     imgStyle?: StyleProp<ImageStyle>;
     imgContainerStyle?: StyleProp<ViewStyle>;
     onPress?: ((event: GestureResponderEvent) => void) | undefined;
@@ -26,7 +26,7 @@ interface ProfileProps {
 const Profile: FunctionComponent<ProfileProps> = (props) => {
     return (
         <StyledView onPress={props.onPress} style={props.imgContainerStyle}>
-            <StyledImage style={props.imgStyle} source={props.img} />
+            <StyledImage style={props.imgStyle} source={{uri:props.img.toString()}} />
         </StyledView>
     );
 };

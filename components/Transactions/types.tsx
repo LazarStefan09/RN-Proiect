@@ -4,10 +4,9 @@ export interface TransactionProps {
     subtitle: string;
     amount: string;
     date: string;
-    art: {
-        icon: string;
-        background: string;
-    };
+    icon: string;
+    background: string;
+    
 }
 
 export interface TransactionSectionProps {

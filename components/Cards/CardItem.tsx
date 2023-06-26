@@ -70,7 +70,7 @@ const CardItem: FunctionComponent<CardProps> = (props) => {
                             ${props.balance}
                         </RegularText>
                     </View>
-                    <Logo source={props.logo} />
+                    <Logo source={{ uri: props.logo }} />
                     </CardRow>
                 </TouchableView>
             </CardTouchable>

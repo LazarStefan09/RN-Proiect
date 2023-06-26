@@ -33,8 +33,8 @@ const TransactionItem: FunctionComponent<TransactionProps> = (props) => {
         <TransactionRow>
             <LeftView>
                 <TransactionProfile
-                background={props.art.background}
-                icon={props.art.icon}
+                background={colors[props.background as keyof typeof colors]}
+                icon={props.icon}
                 />
                 <View style={{ marginLeft: 10 }}>
                     <RegularText textStyles={{

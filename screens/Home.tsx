@@ -6,6 +6,7 @@ import visa from "../assets/cards/visa_white.png";
 import { colors } from "../components/colors";
 import { Container } from "../components/shared";
 import CardSection from "../components/Cards/CardSection";
+import TransactionSection from "../components/Transactions/TransactionSection";
 
 const HomeContainer = styled(Container)`
     background-color: ${colors.graylight};
@@ -31,10 +32,47 @@ const Home: FunctionComponent = () => {
         },
     ];
 
+const transactionData = [
+    {
+        id: 1,
+        amount: "-$10",
+        date: "23 Jun 2023",
+        title: "McDonalds",
+        subtitle: "McChicken Menu",
+        art: {
+            background: colors.primary,
+            icon: "fast-food",
+        },
+    },
+    {
+        id: 2,
+        amount: "-$50",
+        date: "24 Jun 2023",
+        title: "Shopping",
+        subtitle: "Amazon",
+        art: {
+            background: colors.tertiary,
+            icon: "cart",
+        },
+    },
+    {
+        id: 3,
+        amount: "-$200",
+        date: "25 Jun 2023",
+        title: "Travel",
+        subtitle: "Greece",
+        art: {
+            background: colors.accent,
+            icon: "airplane",
+        },
+    },
+];
+
     return (
         <HomeContainer>
             <StatusBar style="dark"/>
             <CardSection data={cardsData} />
+            <TransactionSection data={transactionData}/>
         </HomeContainer>
     );
 };

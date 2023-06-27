@@ -9,10 +9,14 @@ import { colors } from "../components/colors";
 import Greeting from "../components/Header/Greeting";
 import ProfilePic from "../components/Header/ProfilePic";
 import ProfilePicture from "../assets/av-gato.jpg"
+import Balance from "../screens/Balance";
+import { CardProps } from "../components/Cards/types";
+import { Ionicons } from "@expo/vector-icons";
 
-type RootStackParamList = {
+export type RootStackParamList = {
     Welcome: undefined;
     Home: undefined;
+    Balance: CardProps;
 };
 
 
@@ -46,7 +50,7 @@ const RootStack: FunctionComponent = () => {
                 />
             ),
         }}
-         initialRouteName="Home"
+         initialRouteName="Welcome"
          >
             <Stack.Screen
             name="Welcome"
@@ -66,6 +70,25 @@ const RootStack: FunctionComponent = () => {
                 ),
                 headerLeft: () => <></>,
             }}
+            />
+            <Stack.Screen
+                name="Balance"
+                component={Balance}
+                options={({ route }) => ({
+                    headerTitle: route?.params?.alias,
+                    headerTitleAlign: "center",
+                    headerBackImage: (props) => (
+                        <Ionicons
+                            {...props}
+                            name="chevron-back"
+                            size={25}
+                            color={colors.secondary}
+                        />
+                    ),
+                    headerLeftContainerStyle: {
+                        paddingLeft: 0,
+                    },
+                })}
             />
         </Stack.Navigator>
     </NavigationContainer>

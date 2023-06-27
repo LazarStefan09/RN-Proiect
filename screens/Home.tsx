@@ -1,16 +1,12 @@
 import React, { FunctionComponent, useEffect, useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import styled from "styled-components/native";
-import visa from "../assets/cards/visa_white.png";
 //custom components
 import { colors } from "../components/colors";
 import { Container } from "../components/shared";
 import CardSection from "../components/Cards/CardSection";
 import TransactionSection from "../components/Transactions/TransactionSection";
 import SendMoneySection from "../components/SendMoney/SendMoneySection";
-import bananaCat from "../assets/bananacat.jpeg";
-import happyCat from "../assets/happy-happy-happy-cat-1.jpg";
-import appleCat from "../assets/applecat.jpg";
 
 const HomeContainer = styled(Container)`
     background-color: ${colors.graylight};
@@ -24,11 +20,8 @@ const Home: FunctionComponent = () => {
     const [sendMoneyData, setSendMoneyData] = useState([]);
 
     useEffect(() => {
-        // Fetch cards data from the database
-        // Replace this with your actual data fetching logic
         const fetchCardsData = async () => {
           try {
-            // Simulating API call
             const response = await fetch("http://192.168.1.104:8080/cards");
             const data = await response.json();
             setCardsData(data);
@@ -39,7 +32,6 @@ const Home: FunctionComponent = () => {
 
         const fetchTransactionData = async () => {
             try {
-              // Simulating API call
               const response = await fetch("http://192.168.1.104:8080/transactions");
               const data = await response.json();
               setTransactionData(data);
@@ -50,7 +42,6 @@ const Home: FunctionComponent = () => {
 
         const fetchSendMoneyData = async () => {
         try {
-            // Simulating API call
             const response = await fetch("http://192.168.1.104:8080/send-money");
             const data = await response.json();
             setSendMoneyData(data);
@@ -63,9 +54,6 @@ const Home: FunctionComponent = () => {
         fetchCardsData();
         fetchSendMoneyData();
       }, []);
-
-
-
 
     return (
         <HomeContainer>

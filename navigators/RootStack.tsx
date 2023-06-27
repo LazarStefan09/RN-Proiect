@@ -7,13 +7,15 @@ import Welcome from "../screens/Welcome";
 import Home from "../screens/Home";
 import { colors } from "../components/colors";
 import Greeting from "../components/Header/Greeting";
-import Profile from "../components/Header/Profile";
-import ProfilePic from "../assets/av-gato.jpg"
+import ProfilePic from "../components/Header/ProfilePic";
+import ProfilePicture from "../assets/av-gato.jpg"
 
 type RootStackParamList = {
     Welcome: undefined;
     Home: undefined;
 };
+
+
 
 const Stack = createStackNavigator<RootStackParamList>();
 
@@ -38,8 +40,8 @@ const RootStack: FunctionComponent = () => {
                 paddingLeft: 15,
             },
             headerRight: () => (
-                <Profile
-                    img={ProfilePic}
+                <ProfilePic
+                    img={ProfilePicture}
                     imgContainerStyle={{ backgroundColor: colors.tertiary}}
                 />
             ),

@@ -23,12 +23,12 @@ interface ProfileProps {
     onPress?: ((event: GestureResponderEvent) => void) | undefined;
 }
 
-const Profile: FunctionComponent<ProfileProps> = (props) => {
+const ProfilePic: FunctionComponent<ProfileProps> = (props) => {
     return (
         <StyledView onPress={props.onPress} style={props.imgContainerStyle}>
-            <StyledImage style={props.imgStyle} source={{uri:props.img.toString()}} />
+            <StyledImage style={props.imgStyle} source={props.img} />
         </StyledView>
     );
 };
 
-export default Profile;
+export default ProfilePic;

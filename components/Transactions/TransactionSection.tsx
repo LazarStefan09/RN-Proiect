@@ -26,6 +26,12 @@ const TransactionList = styled.FlatList`
 `;
 
 const TransactionSection: FunctionComponent<TransactionSectionProps> = (props) => {
+    const transactions = props.data;
+
+    const renderItem = ({ item }: { item: any }) => (
+        <TransactionItem key={item.id} {...item} />
+      );
+
     return (
         <TransactionSectionBackground>
             <TransactionRow style={{ marginBottom: 25}}>
@@ -37,16 +43,13 @@ const TransactionSection: FunctionComponent<TransactionSectionProps> = (props) =
                 <Ionicons name="caret-down" size={13} color={colors.graydark}/>
                 </SmallText>
             </TransactionRow>
-
-            <TransactionList 
-                data={props.data}
-                showsVerticalScrollIndicator={false}
-                contentContainerStyle={{ 
-                    paddingBottom: 25,
-                }}
-                keyExtractor={({ id }: any) => id.toString()}
-                renderItem={({ item }: any) => <TransactionItem {...item} />}
-             />
+        
+            <TransactionList
+                data={transactions}
+                renderItem={renderItem}
+                keyExtractor={(item: { id: { toString: () => any; }; }) => item.id.toString()}
+                contentContainerStyle={{ paddingBottom: 25 }}
+      />
         </TransactionSectionBackground>
     );
 };

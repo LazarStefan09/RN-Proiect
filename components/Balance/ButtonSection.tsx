@@ -14,7 +14,7 @@ const ButtonSection: FunctionComponent = () => {
     return (
         <ButtonSectionBackground> 
             <RegularButton btnStyles={{ width: "50%"}} onPress={() => {}}>
-                Cancel <Ionicons size={17} name="card" color={colors.white}/>
+                Pay <Ionicons size={17} name="card" color={colors.white}/>
             </RegularButton>
         </ButtonSectionBackground>
     );

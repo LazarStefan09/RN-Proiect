@@ -55,7 +55,7 @@ const Welcome: FunctionComponent<Props> = ( {navigation} ) => {
             Track your money
         </BigText>
         <SmallText textStyles={{width: "70%", marginBottom: 25 }}>
-            Make payments between your family and friends
+            Make payments in one touch
         </SmallText>
         <RegularButton onPress = {() => { navigation.navigate("Home") }}>
             Get Started

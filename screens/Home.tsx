@@ -64,7 +64,7 @@ const Home: FunctionComponent<Props> = () => {
             <StatusBar style="dark"/>
             <CardSection data={cardsData} />
             <TransactionSection data={transactionData}/>
-            <SendMoneySection data={sendMoneyData}/>
+            {/* <SendMoneySection data={sendMoneyData}/> */}
         </HomeContainer>
     );
 };

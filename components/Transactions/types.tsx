@@ -1,5 +1,5 @@
 export interface TransactionProps {
-    id: number;
+    id?: number;
     title: string;
     subtitle: string;
     amount: string;
